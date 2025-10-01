@@ -13,7 +13,7 @@ dotenv.config()
 const app = express()
 
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: true,
     credentials: true,
 }))
 
@@ -24,7 +24,7 @@ app.use(bodyParser.json())
 
 const server = http.createServer(app)
 
-server.listen(process.env.PORT, () => {
+server.listen(process.env.PORT || 8080, () => {
     console.log('Server running on http://localhost:8080/')
 })
 
